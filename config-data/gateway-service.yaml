@@ -1,31 +1,38 @@
 server:
   port: 8080
-  
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://localhost:8761/eureka
-  instance:
-    hostname: localhost
-
+      defaultZone: http://eureka-server-service:8761/eureka/
 spring:
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods: "*"
+            allowedHeaders: "*"
       routes:
         - id: car-service
-          uri: lb://car-service
+          uri: lb://car-service #es necesario incluir el puerto específico?
           predicates:
-            - Path=/car/**
+            - Path=/api/cars/**
         - id: repair-record-service
           uri: lb://repair-record-service
           predicates:
-            - Path=/repair-record/** #ver si esto esta bien
+            - Path=/api/repair-records/**
         - id: discount-service
           uri: lb://discount-service
           predicates:
-            - Path=/discount/**
+            - Path=/api/discounts/**
+        - id: repair-service
+          uri: lb://repair-service
+          predicates:
+            - Path=/api/repairs/**
+        #ver para el repairType, y demáses.
