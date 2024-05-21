@@ -1,6 +1,8 @@
 server:
   port: 8080
 eureka:
+  instance:
+    hostname: localhost
   client:
     fetch-registry: true
     register-with-eureka: true
@@ -20,19 +22,19 @@ spring:
             allowedHeaders: "*"
       routes:
         - id: car-service
-          uri: lb://car-service #es necesario incluir el puerto específico?
+          uri: lb://car-service:8090
           predicates:
             - Path=/api/cars/**
         - id: repair-record-service
-          uri: lb://repair-record-service
+          uri: lb://repair-record-service:8091
           predicates:
             - Path=/api/repair-records/**
         - id: discount-service
-          uri: lb://discount-service
+          uri: lb://discount-service:8092
           predicates:
             - Path=/api/discounts/**
         - id: repair-service
-          uri: lb://repair-service
+          uri: lb://repair-service:8093
           predicates:
             - Path=/api/repairs/**
         #ver para el repairType, y demáses.
