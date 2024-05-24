@@ -3,6 +3,8 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/tingesoLAB2
+    username: postgres
+    password: 1234
 eureka:
   instance:
     hostname: localhost
