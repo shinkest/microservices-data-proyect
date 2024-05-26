@@ -1,5 +1,5 @@
 server:
-  port: 8092
+  port: ${PORT:${SERVER_PORT:0}}
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/tingesoLAB2
@@ -8,6 +8,7 @@ spring:
 eureka:
   instance:
     hostname: localhost
+    preferIPAddress: true
   client:
     fetch-registry: true
     register-with-eureka: true
