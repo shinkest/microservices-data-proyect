@@ -8,3 +8,4 @@ eureka:
       default-zone: http://eureka-service:8761/eureka/ #OJO
   instance:
     preferIPAddress: true
+    hostname: localhost
