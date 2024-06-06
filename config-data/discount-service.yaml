@@ -1,18 +1,10 @@
 server:
   port: ${PORT:${SERVER_PORT:0}}
-spring:
-  datasource:
-    url: jdbc:postgresql://discount-service-db:5433/discount-service-db
-    username: postgres
-    password: 1234
-  jpa:
-    hibernate:
-      ddl-auto: update
 eureka:
-  instance:
-    preferIpAddress: true
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
       defaultZone: http://eureka-service-service:8761/eureka/
+  instance:
+    preferIpAddress: true
