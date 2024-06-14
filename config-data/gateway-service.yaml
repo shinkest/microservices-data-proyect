@@ -20,7 +20,7 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins: '*'
-            allowedMethods: "GET, POST, PUT, DELETE"
+            allowedMethods: "*"
             allowedHeaders: "*"
       routes:
         - id: car-service
