@@ -43,3 +43,7 @@ spring:
           uri: lb://repair-type-service
           predicates:
             - Path=/api/repair-types/**
+        - id: office-autofix-service
+          uri: lb://office-autofix-service
+          predicates:
+            - Path=/api/office-autofix.service/**
