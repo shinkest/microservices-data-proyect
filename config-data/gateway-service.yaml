@@ -47,3 +47,7 @@ spring:
           uri: lb://office-autofix-service
           predicates:
             - Path=/api/office-autofix/**
+        - id: report-service
+          uri: lb://report-service
+          predicates:
+            - Path=/api/reports/**
